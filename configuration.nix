@@ -3,7 +3,7 @@
 {
   system.stateVersion = "23.05";
 
-  sshconfMod = {
+
     users.users.noisebridge = {
       isNormalUser = true;
       # extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
@@ -27,5 +27,4 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEGFBq/gMzcNyKiYyo4lklSAl+IFZed2HEhhN5CpMg7m alice@nixos"
     ];
 
-  };
 }
