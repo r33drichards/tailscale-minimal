@@ -49,7 +49,7 @@
     '';
 
     serviceConfig = {
-      User = "alice";
+      User = "noisebridge";
       Group = "users";
     };
   };
