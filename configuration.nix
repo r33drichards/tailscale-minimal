@@ -81,15 +81,7 @@ in
 
   };
 
-  systemd.services.reverse-tunnel = {
-    # sudo ssh -R 2222:localhost:22 noisebridge@35.94.146.202
-    description = "Reverse Tunnel";
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.openssh ];
-    script = ''
-      ssh -R 1235:localhost:22 noisebridge@noisebridge.duckdns.org
-    '';
-  };
+
 
 
 }
