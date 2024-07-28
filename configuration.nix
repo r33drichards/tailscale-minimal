@@ -57,4 +57,10 @@
     };
   };
 
+  services.ddclient = {
+    enable = true;
+    passwordFile = "/ddclient-password";
+    server = "noisebridge.duckdns.org"
+  }
+
 }
