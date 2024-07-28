@@ -70,6 +70,7 @@ in
       passwordFile = "/ddclient-password";
       server = "noisebridge.duckdns.org";
       protocol = "duckdns";
+      username = "r33drichards@github"
     };
 
   }
