@@ -65,12 +65,13 @@ in
       };
     };
 
-    services.ddclient = {
-      enable = true;
-      passwordFile = "/ddclient-password";
-      server = "noisebridge.duckdns.org";
-      protocol = "duckdns";
-      username = "r33drichards@github";
+    systemd.services.duckdns-update = {
+      description = "Update DuckDNS";
+      wantedBy = [ "multi-user.target" ];
+      path = [ pkgs.curl ];
+      script = ''
+        curl "https://www.duckdns.org/update?domains=noisebridge&token=${builtins.readFile /ddclient-password}"
+      '';
     };
 
   }
