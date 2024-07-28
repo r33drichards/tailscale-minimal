@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  rbash = pkgs.lib.runCommandNoCC "rbash-${pkgs.bashInteractive.version}" { } ''
+  rbash = pkgs.runCommandNoCC "rbash-${pkgs.bashInteractive.version}" { } ''
     mkdir -p $out/bin
     ln -s ${pkgs.bashInteractive}/bin/bash $out/bin/rbash
   '';
