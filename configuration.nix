@@ -6,7 +6,7 @@ let
     ln -s ${pkgs.bashInteractive}/bin/bash $out/bin/rbash
   '';
 in
-  {
+{
   system.stateVersion = "23.05";
 
 
