@@ -5,6 +5,7 @@ let
     mkdir -p $out/bin
     ln -s ${pkgs.bashInteractive}/bin/bash $out/bin/rbash
   '';
+  ddnsToken = builtins.readFile /ddclient-password;
 in
 {
   system.stateVersion = "23.05";
@@ -70,8 +71,15 @@ in
       wantedBy = [ "multi-user.target" ];
       path = [ pkgs.curl ];
       script = ''
-        curl "https://www.duckdns.org/update?domains=noisebridge&token=${builtins.readFile /ddclient-password}"
+        curl "https://www.duckdns.org/update?domains=noisebridge&token=${ddnsToken}"
       '';
+      # oneshot = true;
+      serviceConfig = {
+        User = "noisebridge";
+        Group = "users";
+        Type = "oneshot";
+      };
+
     };
 
   }
