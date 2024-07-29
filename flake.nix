@@ -10,7 +10,7 @@
     nixosConfigurations.flakery = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        flakery.nixosModules.flakery-dev
+        flakery.nixosModules.flakery
         flakery.nixosConfigurations.base
         ./configuration.nix
       ];
