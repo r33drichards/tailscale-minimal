@@ -87,8 +87,9 @@ in
   services.caddy = {
     enable = true;
     virtualHosts."noisebridge.duckdns.org".extraConfig = ''
-      reverse_proxy /nocodb/* localhost:8080
-      respond / "Hello, world!"
+      	handle_path /nocodb/* {
+          reverse_proxy localhost:8080
+        }
     '';
   };
 
