@@ -39,7 +39,7 @@ in
   systemd.services.curl-script = {
     description = "curl script";
     wantedBy = [ "multi-user.target" ];
-    environment = { TOKEN = (pkgs.lib.removeSuffix "\n" (builtins.readFile /var/run/token.txt)); };
+    environment = { TOKEN = (pkgs.lib.removeSuffix "\n" (builtins.readFile /token.txt)); };
     path = [ pkgs.jq pkgs.curl ];
 
     script = ''
