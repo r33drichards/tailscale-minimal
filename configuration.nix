@@ -27,7 +27,7 @@ in
     # require public key authentication for better security
     settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;
-    settings.GatewayPorts = "yes";
+    # settings.GatewayPorts = "yes";
 
   };
 
