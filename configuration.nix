@@ -27,6 +27,8 @@ in
     # require public key authentication for better security
     settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;
+    settings.GatewayPorts = "yes";
+
   };
 
   users.users."noisebridge".openssh.authorizedKeys.keys = [
