@@ -71,7 +71,7 @@ in
     wantedBy = [ "multi-user.target" ];
     path = [ pkgs.curl ];
     script = ''
-      curl "https://www.duckdns.org/update?domains=noisebridge&token=`cat /ddclient-password`"
+      curl "https://www.duckdns.org/update?domains=noisebridge,nbnoco&token=`cat /ddclient-password`"
     '';
     # oneshot = true;
     serviceConfig = {
@@ -86,7 +86,7 @@ in
   # respond hello world on  noisebridge.duckdns.org
   services.caddy = {
     enable = true;
-    virtualHosts."noisebridge.duckdns.org".extraConfig = ''
+    virtualHosts."nbnoco.duckdns.org".extraConfig = ''
       reverse_proxy localhost:8080
     '';
   };
