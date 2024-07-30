@@ -89,6 +89,10 @@ in
     virtualHosts."nbnoco.duckdns.org".extraConfig = ''
       reverse_proxy localhost:8080
     '';
+    # 301 redirect to https://www.noisebridge.net/wiki/Lemp10
+    virtualHosts."noisebridge.duckdns.org".extraConfig = ''
+      redir https://www.noisebridge.net/wiki/Lemp10
+    '';
   };
 
 
