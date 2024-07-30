@@ -93,7 +93,7 @@ in
     virtualHosts."noisebridge.duckdns.org".extraConfig = ''
       redir https://www.noisebridge.net/wiki/Lemp10
     '';
-    virtualHosts."nbwindmill.noisebridge.org".extraConfig = ''
+    virtualHosts."nbwindmill.duckdns.org".extraConfig = ''
       reverse_proxy localhost:8001
     '';
   };
