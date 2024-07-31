@@ -20,7 +20,7 @@ in
   # security.sudo.wheelNeedsPassword = false;
 
   # port 22
-  networking.firewall.allowedTCPPorts = [ 22 2222 80 443 8080 ];
+  networking.firewall.allowedTCPPorts = [ 22 80 443 ];
 
   services.openssh = {
     enable = true;
