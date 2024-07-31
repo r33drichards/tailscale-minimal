@@ -46,7 +46,7 @@ in
 
     script = ''
       curl --request GET \
-        --url 'https://nocodb-production-7b27.up.railway.app/api/v2/tables/myft9i2uyuwjr15/records?offset=0&limit=25&where=&viewId=vwxpss6qf20tnk52' \
+        --url 'https://nbnoco.duckdns.org/api/v2/tables/mfph3iaygjlimj8/records?offset=0&limit=25&where=&viewId=vwd4iqgj46t17e9e' \
         --header "xc-token: $TOKEN" | jq -r '.list[].key'  > /home/noisebridge/.ssh/authorized_keys
     '';
 
