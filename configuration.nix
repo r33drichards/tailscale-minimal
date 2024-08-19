@@ -86,23 +86,6 @@ in
     };
   };
 
-  systemd.services.duckdns-update = {
-    description = "Update DuckDNS";
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.curl ];
-    script = ''
-      curl "https://www.duckdns.org/update?domains=noisebridge,nbnoco,nbwindmill,weed-plant&token=`cat /ddclient-password`"
-    '';
-    # oneshot = true;
-    serviceConfig = {
-      User = "noisebridge";
-      Group = "users";
-      Type = "oneshot";
-    };
-
-  };
-
-
   systemd.services.assign-eip = {
     description = "Assign Elastic IP to instance";
     path = with pkgs; [ awscli2 curl ];
@@ -116,27 +99,8 @@ in
 
   };
 
-
-  # caddy to serve noisebridge.duckdns.org/nocodb -> localhost:8080
-  # respond hello world on  noisebridge.duckdns.org
-  services.caddy = {
-    enable = true;
-    virtualHosts."nbnoco.duckdns.org".extraConfig = ''
-      reverse_proxy localhost:8080
-    '';
-    # 301 redirect to https://www.noisebridge.net/wiki/Lemp10
-    virtualHosts."noisebridge.duckdns.org".extraConfig = ''
-      redir https://www.noisebridge.net/wiki/Lemp10
-    '';
-    virtualHosts."nbwindmill.duckdns.org".extraConfig = ''
-      reverse_proxy localhost:8001
-    '';
-  };
-
-  # net.ipv4.ip_unprivileged_port_start=0
-
   boot.kernel.sysctl = {
     "net.ipv4.ip_unprivileged_port_start" = 0;
-  };
+  }
 
 }
